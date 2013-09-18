@@ -12,7 +12,7 @@ public class RecipeSearchService extends Service<RecipeConfiguration>{
 
     @Override
     public void initialize(Bootstrap<RecipeConfiguration> bootstrap) {
-        bootstrap.setName("foodSearch");
+        bootstrap.setName("foodelicious");
     }
 
     @Override
