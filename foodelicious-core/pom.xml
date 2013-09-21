@@ -8,7 +8,7 @@
 	<packaging>jar</packaging>
 
 	<name>foodelicious-core</name>
-	<url>http://maven.apache.org</url>
+	<url>http://testurl</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
