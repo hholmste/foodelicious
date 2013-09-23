@@ -2,14 +2,20 @@ package no.foodelicious.service;
 
 public class Recipe {
     private final long id;
-    private final String description;
-    private final String directions;
+    private String description;
+    private String directions;
+    
+    
+    public Recipe(long id) {
+    	super();
+    	this.id = id;
+	}
 
     public Recipe(long id, String description, String directions) {
         super();
         this.id = id;
-        this.description = description;
-        this.directions = directions;
+        this.setDescription(description);
+        this.setDirections(directions);
     }
 
     public long getId() {
@@ -23,4 +29,12 @@ public class Recipe {
     public String getDirections() {
         return directions;
     }
+
+	public void setDirections(String directions) {
+		this.directions = directions;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
