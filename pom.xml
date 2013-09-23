@@ -14,6 +14,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <modules>
-    <module>foodelicious-core</module>
+    <module>foodelicious-coreee</module>
   </modules>
 </project>
