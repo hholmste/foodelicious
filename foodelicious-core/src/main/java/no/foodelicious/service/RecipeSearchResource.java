@@ -24,6 +24,7 @@ public class RecipeSearchResource {
         recipes.put(2L, Optional.of(new Recipe(2, "Burger", "McDonalds.")));
         recipes.put(3L, Optional.of(new Recipe(3, "Suppe", "Toro - kjøkkenets beste venn.")));
         recipes.put(4L, Optional.of(new Recipe(4, "Pannekaker", "Bland melk, mel, salt, egg og smeltet smør.")));
+        recipes.put(5L, Optional.of(new Recipe(5, "Foie gras med eple og balsamico", "Lever, fett, eple og mange")));
     }
 
     @GET
