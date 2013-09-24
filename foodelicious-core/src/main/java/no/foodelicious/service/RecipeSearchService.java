@@ -18,6 +18,6 @@ public class RecipeSearchService extends Service<RecipeConfiguration> {
     @Override
     public void run(RecipeConfiguration configuration, Environment environment) throws Exception {
         environment.addResource(new RecipeSearchResource());
-        environment.addResource(new RecipeListResource());
+        environment.addResource(new RecipeResource());
     }
 }

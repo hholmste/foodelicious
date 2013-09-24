@@ -15,7 +15,7 @@ import com.yammer.metrics.annotation.Timed;
 @Path("/recipe")
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-public class RecipeListResource {
+public class RecipeResource {
 
     private RecipeDAO recipeDao = RecipeDAO.getInstance();
 
