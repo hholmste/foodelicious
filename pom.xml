@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <name>foodelicious-pom</name>
-  <url>http://maven.apache.org</url>
+  <url>http://foodelicious.herokuapp.com/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
