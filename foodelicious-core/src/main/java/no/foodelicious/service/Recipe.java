@@ -1,15 +1,18 @@
 package no.foodelicious.service;
 
 public class Recipe {
-    private final long id;
+    private long id;
     private String description;
     private String directions;
     
     
     public Recipe(long id) {
-    	super();
-    	this.id = id;
-	}
+        super();
+        this.id = id;
+    }
+
+    public Recipe() {
+    }
 
     public Recipe(long id, String description, String directions) {
         super();
@@ -22,6 +25,10 @@ public class Recipe {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -30,11 +37,11 @@ public class Recipe {
         return directions;
     }
 
-	public void setDirections(String directions) {
-		this.directions = directions;
-	}
+    public void setDirections(String directions) {
+        this.directions = directions;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

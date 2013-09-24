@@ -5,19 +5,19 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import com.google.common.base.Optional;
+import javax.ws.rs.core.Response;
 
 @Path("recipe/create")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
+@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class RecipeCreateResource {
 	
 	private RecipeDAO recipeDao = RecipeDAO.getInstance();
 	
 	@POST
-	public Optional<Recipe> createRecipe(Recipe recipe){
-		return recipeDao.create(recipe);
+	public Response createRecipe(Recipe recipe){
+	    Recipe createdRecipe = recipeDao.create(recipe);
+		return Response.status(Response.Status.CREATED).entity(createdRecipe).build();
 	}
 
 }

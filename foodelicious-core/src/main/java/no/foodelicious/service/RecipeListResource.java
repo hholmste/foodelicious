@@ -7,18 +7,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
 
 @Path("/recipe")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class RecipeListResource {
     
-	private RecipeDAO racipeDao = RecipeDAO.getInstance();
+    private RecipeDAO racipeDao = RecipeDAO.getInstance();
 
     @GET
     @Timed
-    public Collection<Optional<Recipe>> getRecipe() {
+    public Collection<Recipe> getRecipe() {
         return racipeDao.findAll();
     }
 }
