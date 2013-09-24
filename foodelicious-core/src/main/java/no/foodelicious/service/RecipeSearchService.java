@@ -4,8 +4,8 @@ import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 
-public class RecipeSearchService extends Service<RecipeConfiguration>{
-    
+public class RecipeSearchService extends Service<RecipeConfiguration> {
+
     public static void main(String[] args) throws Exception {
         new RecipeSearchService().run(args);
     }
@@ -19,6 +19,5 @@ public class RecipeSearchService extends Service<RecipeConfiguration>{
     public void run(RecipeConfiguration configuration, Environment environment) throws Exception {
         environment.addResource(new RecipeSearchResource());
         environment.addResource(new RecipeListResource());
-        environment.addResource(new RecipeCreateResource());
     }
 }

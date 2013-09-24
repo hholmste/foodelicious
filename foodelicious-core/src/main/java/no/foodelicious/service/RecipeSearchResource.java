@@ -12,9 +12,9 @@ import com.yammer.metrics.annotation.Timed;
 @Path("/recipe/{id}")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class RecipeSearchResource {
-	
-	private RecipeDAO recipeDao = RecipeDAO.getInstance();
-    
+
+    private RecipeDAO recipeDao = RecipeDAO.getInstance();
+
     @GET
     @Timed
     public Optional<Recipe> getRecipe(@PathParam("id") Long id) {
