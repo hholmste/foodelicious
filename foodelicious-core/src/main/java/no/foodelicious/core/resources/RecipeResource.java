@@ -1,4 +1,4 @@
-package no.foodelicious.service;
+package no.foodelicious.core.resources;
 
 import java.util.Collection;
 
@@ -6,10 +6,15 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import no.foodelicious.core.dao.RecipeDAO;
+import no.foodelicious.service.Recipe;
+
+import com.google.common.base.Optional;
 import com.yammer.metrics.annotation.Timed;
 
 @Path("/recipe")
@@ -23,6 +28,13 @@ public class RecipeResource {
     @Timed
     public Collection<Recipe> getRecipe() {
         return recipeDao.findAll();
+    }
+    
+    @GET
+    @Timed
+    @Path("/{id}")
+    public Optional<Recipe> getRecipe(@PathParam("id") Long id) {
+        return recipeDao.findById(id);
     }
 
     @POST

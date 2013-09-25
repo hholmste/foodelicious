@@ -1,16 +1,16 @@
-package no.foodelicious.core.rest.resource;
+package no.foodelicious.core.resources;
 
 import javax.ws.rs.core.MediaType;
 
 import org.junit.Test;
 import static org.fest.assertions.api.Assertions.assertThat;
 
+import no.foodelicious.core.resources.RecipeResource;
 import no.foodelicious.service.Recipe;
-import no.foodelicious.service.RecipeResource;
 
 import com.yammer.dropwizard.testing.ResourceTest;
 
-public class RecipeCreateResourceTest extends ResourceTest {
+public class RecipeResourceTest extends ResourceTest {
 
     @Override
     protected void setUpResources() throws Exception {

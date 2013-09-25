@@ -1,9 +1,11 @@
-package no.foodelicious.service;
+package no.foodelicious.core.dao;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.ws.rs.PathParam;
+
+import no.foodelicious.service.Recipe;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

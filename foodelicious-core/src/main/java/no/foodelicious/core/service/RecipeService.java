@@ -1,13 +1,16 @@
-package no.foodelicious.service;
+package no.foodelicious.core.service;
+
+import no.foodelicious.core.configuration.RecipeConfiguration;
+import no.foodelicious.core.resources.RecipeResource;
 
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 
-public class RecipeSearchService extends Service<RecipeConfiguration> {
+public class RecipeService extends Service<RecipeConfiguration> {
 
     public static void main(String[] args) throws Exception {
-        new RecipeSearchService().run(args);
+        new RecipeService().run(args);
     }
 
     @Override
@@ -17,7 +20,6 @@ public class RecipeSearchService extends Service<RecipeConfiguration> {
 
     @Override
     public void run(RecipeConfiguration configuration, Environment environment) throws Exception {
-        environment.addResource(new RecipeSearchResource());
         environment.addResource(new RecipeResource());
     }
 }

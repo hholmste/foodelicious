@@ -1,4 +1,4 @@
-package no.foodelicious.service;
+package no.foodelicious.core.configuration;
 
 import com.yammer.dropwizard.config.Configuration;
 
