@@ -20,9 +20,11 @@ public class RecipeDAO {
     private final Collection<Recipe> recipes = new ArrayList<>();
     private long counter = 2;
     private Recipe defaultRecipe = new Recipe(1, "Pizza", "Kjøp grandis på rema - husk ketchup.");
+    private Recipe defaultRecipe2 = new Recipe(2, "foie gras de canard", "Stek lever, legg til sides, skjær epler stek i fettet som ligger igjen og ha i litt balsamicoeddik");
 
     private RecipeDAO() {
         recipes.add(defaultRecipe);
+        recipes.add(defaultRecipe2);
     }
 
     public static RecipeDAO getInstance() {
