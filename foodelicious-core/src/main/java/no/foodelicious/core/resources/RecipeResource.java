@@ -11,10 +11,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import no.foodelicious.core.dao.RecipeDAO;
-import no.foodelicious.service.Recipe;
+import no.foodelicious.core.model.Recipe;
+import no.foodelicious.core.repository.RecipeRepository;
 
-import com.google.common.base.Optional;
+import org.mongodb.morphia.Key;
+
 import com.yammer.metrics.annotation.Timed;
 
 @Path("/recipe")
@@ -22,24 +23,29 @@ import com.yammer.metrics.annotation.Timed;
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class RecipeResource {
 
-    private RecipeDAO recipeDao = RecipeDAO.getInstance();
+	private RecipeRepository repository;
+	
+	public RecipeResource() {
+		repository = new RecipeRepository();
+	}
 
-    @GET
-    @Timed
-    public Collection<Recipe> getRecipe() {
-        return recipeDao.findAll();
-    }
-    
-    @GET
-    @Timed
-    @Path("/{id}")
-    public Optional<Recipe> getRecipe(@PathParam("id") Long id) {
-        return recipeDao.findById(id);
-    }
+	@GET
+	@Timed
+	public Collection<Recipe> getRecipe() {
+		return repository.findAll();
+	}
 
-    @POST
-    public Response createRecipe(Recipe recipe) {
-        Recipe createdRecipe = recipeDao.create(recipe);
-        return Response.status(Response.Status.CREATED).entity(createdRecipe).build();
-    }
+	@GET
+	@Timed
+	@Path("/{id}")
+	public Recipe getRecipe(@PathParam("id") Long id) {
+		return repository.findById(id);
+	}
+
+	@POST
+	public Response createRecipe(Recipe recipe){
+		Key<Recipe> createdRecipe = repository.create(recipe);
+		return Response.status(Response.Status.CREATED).entity(createdRecipe)
+				.build();
+	}
 }

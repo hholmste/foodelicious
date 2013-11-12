@@ -1,6 +1,7 @@
 package no.foodelicious.core.service;
 
 import no.foodelicious.core.configuration.RecipeConfiguration;
+import no.foodelicious.core.health.MongoHealth;
 import no.foodelicious.core.resources.RecipeResource;
 
 import com.yammer.dropwizard.Service;
@@ -20,6 +21,10 @@ public class RecipeService extends Service<RecipeConfiguration> {
 
     @Override
     public void run(RecipeConfiguration configuration, Environment environment) throws Exception {
+    	//resources goes here
         environment.addResource(new RecipeResource());
+        
+        //health checks goes here
+        environment.addHealthCheck(new MongoHealth("mongodb health check"));
     }
 }

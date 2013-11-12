@@ -1,21 +1,20 @@
 package no.foodelicious.core.model;
 
-import java.io.Serializable;
 import java.util.List;
 
-import org.springframework.data.annotation.Id;
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
 
-public class Recipe implements Serializable{
+@Entity("recipe")
+public class Recipe{
 	
-	private static final long serialVersionUID = 3727273164631210273L;
-
 	@Id
-    private String id;
+	private ObjectId id;
 	
 	private String name;
 	
-	private String description;
-	
+	private String description;	
 
 	private String directions;
 	
@@ -27,14 +26,10 @@ public class Recipe implements Serializable{
 	
 	private String source;
 	
-	public String getId() {
-		return id;
-	}
 	
-	public void setId(String id) {
-		this.id = id;
+	public Recipe() {
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -92,7 +87,7 @@ public class Recipe implements Serializable{
 	}
 
 	public String toString(){
-		return String.format("Id[id=%s, name='%s', description='%s']",
-                id, name, description);
+		return String.format("Id[name='%s', description='%s']",
+                name, description);
 	}
 }
