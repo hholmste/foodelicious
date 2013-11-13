@@ -25,8 +25,8 @@ public class RecipeResource {
 
 	private RecipeRepository repository;
 	
-	public RecipeResource() {
-		repository = new RecipeRepository();
+	public RecipeResource(RecipeRepository repository) {
+		this.repository = repository;
 	}
 
 	@GET
@@ -45,7 +45,6 @@ public class RecipeResource {
 	@POST
 	public Response createRecipe(Recipe recipe){
 		Key<Recipe> createdRecipe = repository.create(recipe);
-		return Response.status(Response.Status.CREATED).entity(createdRecipe)
-				.build();
+		return Response.status(Response.Status.CREATED).entity(createdRecipe).build();
 	}
 }
