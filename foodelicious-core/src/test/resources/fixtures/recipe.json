@@ -1,0 +1,19 @@
+{
+    "name":"Pizza",
+    "description":"Some description",
+    "directions":"Some directions",
+    "servings":2,
+    "courseType":"MAIN_COURSE",
+    "recipeItems":[
+        {
+            "ingredient":{
+                "id":1,
+                "name":"Tomato",
+                "description":"Ingredient description"
+            },
+            "measuringUnit":"Kilograms",
+            "number":2
+        }
+    ],
+    "source":"www.someplace.com"
+}

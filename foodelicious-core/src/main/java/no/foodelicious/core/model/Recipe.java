@@ -6,29 +6,34 @@ import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity("recipe")
 public class Recipe{
 	
 	@Id
 	private ObjectId id;
 	
+	@JsonProperty
 	private String name;
 	
+	@JsonProperty
 	private String description;	
 
+	@JsonProperty
 	private String directions;
 	
+	@JsonProperty
 	private Integer servings;
 	
+	@JsonProperty( )
 	private CourseType courseType;
 	
+	@JsonProperty
 	private List<RecipeItem> recipeItems;
 	
+	@JsonProperty
 	private String source;
-	
-	
-	public Recipe() {
-	}
 
 	public String getName() {
 		return name;
