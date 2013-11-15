@@ -4,7 +4,7 @@ import static com.yammer.dropwizard.testing.JsonHelpers.asJson;
 import static com.yammer.dropwizard.testing.JsonHelpers.fromJson;
 import static com.yammer.dropwizard.testing.JsonHelpers.jsonFixture;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class RecipeParseTest {
 		Recipe recipe = creatRecipe();
 		assertThat(
 				"rendering a recipe as JSON produces a valid API representation",
-				asJson(recipe), is(jsonFixture("fixtures/recipe.json")));
+				asJson(recipe), equalTo(jsonFixture("fixtures/recipe.json")));
 	}
 	
 	@Test
@@ -32,7 +32,7 @@ public class RecipeParseTest {
 		Recipe recipe = creatRecipe();
 	    assertThat("parsing a valid API representation produces a recipe",
 	               fromJson(jsonFixture("fixtures/recipe.json"), Recipe.class),
-	               is(recipe));
+	               equalTo(recipe));
 	}
 
 	private Recipe creatRecipe() {
