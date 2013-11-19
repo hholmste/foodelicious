@@ -3,6 +3,7 @@ package no.foodelicious.core.service;
 import no.foodelicious.core.configuration.RecipeConfiguration;
 import no.foodelicious.core.factory.RepositoryFactory;
 import no.foodelicious.core.health.MongoHealth;
+import no.foodelicious.core.resources.ImageUploadResource;
 import no.foodelicious.core.resources.RecipeResource;
 
 import com.yammer.dropwizard.Service;
@@ -24,6 +25,7 @@ public class RecipeService extends Service<RecipeConfiguration> {
 	public void run(RecipeConfiguration configuration, Environment environment)throws Exception {
 		// resources goes here
 		environment.addResource(new RecipeResource(new RepositoryFactory().create(configuration.getMongoConfig())));
+		environment.addResource(new ImageUploadResource(  new RepositoryFactory().createGridFS( configuration.getMongoConfig() )));
 
 		// health checks goes here
 		environment.addHealthCheck(new MongoHealth("mongodb health check"));
