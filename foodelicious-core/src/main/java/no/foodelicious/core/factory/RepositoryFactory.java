@@ -29,9 +29,9 @@ public class RepositoryFactory {
 		return gridFS;
 	}
 	
-	private Datastore getDatatore(MongoConfiguration config){
+	public Datastore getDatatore(MongoConfiguration config){
 		try {
-			mongoClient = new MongoClient(config.getHost(), config.getPort());
+			mongoClient = new MongoClient(config.getUrl(), config.getPort());
 			return new Morphia()
 			.map(Recipe.class)
 			.createDatastore(mongoClient, "foodelicious");

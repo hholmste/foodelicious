@@ -1,0 +1,7 @@
+# Database settings.
+mongoConfiguration:
+  # the JDBC URL
+  url: localhost
+  port: 27017
+
+

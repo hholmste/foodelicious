@@ -11,15 +11,15 @@ public class MongoConfiguration {
 	
 	@NotNull
 	@JsonProperty
-	private String host = "localhost";
+	private String url;
 	
 	@Min(1)
 	@Max(655351)
 	@JsonProperty
-	private int port = 27017;
+	private int port;
 	
-	public String getHost(){
-		return host;
+	public String getUrl(){
+		return url;
 	}
 	
 	public int getPort(){
