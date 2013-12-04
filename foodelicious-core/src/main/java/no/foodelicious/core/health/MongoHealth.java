@@ -1,15 +1,19 @@
 package no.foodelicious.core.health;
 
+import com.mongodb.Mongo;
 import com.yammer.metrics.core.HealthCheck;
 
 public class MongoHealth extends HealthCheck {
 
-	public MongoHealth(String name) {
-		super(name);
+	private Mongo mongo;
+	
+	public MongoHealth(Mongo name) {
+		super("MongoDBHelatCheck");
 	}
 
 	@Override
 	protected Result check() throws Exception {
-		return Result.healthy("mongodb - ok");
+		mongo.getDatabaseNames();
+		return Result.healthy();
 	}
 }
