@@ -26,6 +26,9 @@ public class RecipeService extends Service<RecipeConfiguration> {
 		// resources goes here
 		environment.addResource(new RecipeResource(new RepositoryFactory().create(configuration.getMongoConfig())));
 		environment.addResource(new ImageResource(  new RepositoryFactory().createGridFS( configuration.getMongoConfig() )));
+		//configure request/response logging
+		environment.setJerseyProperty(ResourceConfig.PROPERTY_CONTAINER_REQUEST_FILTERS, LoggingFilter.class);
+		environment.setJerseyProperty(ResourceConfig.PROPERTY_CONTAINER_RESPONSE_FILTERS, LoggingFilter.class);
 
 		// health checks goes here
 		environment.addHealthCheck(new MongoHealth(new RepositoryFactory().getDatatore(configuration.getMongoConfig()).getMongo()));
