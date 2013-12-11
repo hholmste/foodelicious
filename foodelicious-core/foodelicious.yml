@@ -1,3 +1,7 @@
+http:
+  port: 8080
+  rootPath: /foodelicious/*
+
 # Database settings.
 mongoConfiguration:
   # the JDBC URL
@@ -5,3 +9,9 @@ mongoConfiguration:
   port: 27017
 
 
+logging:
+
+  loggers:
+    "com.sun.jersey.api.container.filter.ØoggingFilter": INFO
+  console:
+    timeZone: GMT+01
