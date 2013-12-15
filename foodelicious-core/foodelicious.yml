@@ -9,6 +9,10 @@ mongoConfiguration:
   port: 27017
 
 
+assets:
+  overrides:
+    /: src/main/resources/assets/
+
 logging:
 
   loggers:
