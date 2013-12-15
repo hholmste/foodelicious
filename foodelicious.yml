@@ -16,6 +16,6 @@ assets:
 logging:
 
   loggers:
-    "com.sun.jersey.api.container.filter.ØoggingFilter": INFO
+    "com.sun.jersey.api.container.filter.LoggingFilter": INFO
   console:
     timeZone: GMT+01
