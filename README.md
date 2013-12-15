@@ -5,7 +5,7 @@ foodelicious
 
 Prerequisites:
 - Java 1.7 or above
-- Mongodb installed
+- Mongodb installed and running @ localhost:27017. This can be configured in foodelicious.yml
 
 Get Started
 -----------
