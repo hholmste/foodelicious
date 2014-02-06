@@ -6,9 +6,16 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
 public class MongoConfiguration {
-	
+
+	public MongoConfiguration() {
+	}
+
+	public MongoConfiguration(String url, int port) {
+		this.url = url;
+		this.port = port;
+	}
+
 	@NotNull
 	@JsonProperty
 	private String url;
