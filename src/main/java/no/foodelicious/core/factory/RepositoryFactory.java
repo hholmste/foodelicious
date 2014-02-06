@@ -4,6 +4,8 @@ import java.net.UnknownHostException;
 
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.mongodb.DB;
 import com.mongodb.Mongo;
@@ -15,7 +17,9 @@ import no.foodelicious.core.model.Recipe;
 import no.foodelicious.core.repository.RecipeRepository;
 
 public class RepositoryFactory {
-	
+
+	private static final Logger LOG = LoggerFactory.getLogger(RepositoryFactory.class);
+
 	private MongoClient mongoClient;
 
 	public RecipeRepository create(MongoConfiguration config){
@@ -31,12 +35,13 @@ public class RepositoryFactory {
 	
 	public Datastore getDatatore(MongoConfiguration config){
 		try {
+			LOG.debug(String.format("Connecting to mongo database at %s:%d", config.getUrl(), config.getPort()));
 			mongoClient = new MongoClient(config.getUrl(), config.getPort());
 			return new Morphia()
 			.map(Recipe.class)
 			.createDatastore(mongoClient, "foodelicious");
 		} catch (UnknownHostException e) {
-			e.printStackTrace();
+			LOG.error(String.format("Error connecting to mongo database at %s:%d", config.getUrl(), config.getPort()), e);
 		}
 		return null;
 	}
