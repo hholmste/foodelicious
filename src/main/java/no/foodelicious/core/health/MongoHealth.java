@@ -8,7 +8,7 @@ public class MongoHealth extends HealthCheck {
 	private Mongo mongo;
 	
 	public MongoHealth(Mongo name) {
-		super("MongoDBHelatCheck");
+		super("MongoDBHealthCheck");
 	}
 
 	@Override
