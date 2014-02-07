@@ -14,8 +14,10 @@ assets:
     /: src/main/resources/assets/
 
 logging:
+  level: DEBUG
 
   loggers:
     "com.sun.jersey.api.container.filter.LoggingFilter": INFO
+    "org.eclipse.jetty": INFO
   console:
     timeZone: GMT+01
