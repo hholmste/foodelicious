@@ -1,3 +1,7 @@
 <div ng-controller="RecipeCtrl">
-	List of recipes...
+	<ul>
+		<li ng-repeat="recipe in recipes">{{recipe.name}}
+			<p>{{recipe.description}}</p>
+		</li>
+	</ul>
 </div>
