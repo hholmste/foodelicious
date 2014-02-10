@@ -16,4 +16,9 @@ Get Started
 4. open http://localhost:8080/index.html  with a prefered browser
 
 
+Development
+-----------
 
+Post data to recipe endpoint:
+
+    curl -H "Content-Type: application/json" -X POST -d '@src/test/resources/fixtures/recipe.json' http://localhost:8080/foodelicious/recipe
