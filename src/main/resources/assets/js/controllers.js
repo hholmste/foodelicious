@@ -15,4 +15,14 @@ recipeControllers.controller('RecipeCtrl', ['$scope', '$http',
 				 'description': 'receipdescription2'},
 			];
 		});
+
+		$scope.saveRecipe = function(recipe) {
+			$http.post('http://localhost:8080/foodelicious/recipe', recipe).
+			success(function(data) {
+				$scope.statusText = "Saved"
+			}).
+			error(function(data) {
+				$scope.statusText = "Error saving"
+			});
+		};
 	}]);
