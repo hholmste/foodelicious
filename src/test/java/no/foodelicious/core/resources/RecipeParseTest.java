@@ -3,8 +3,8 @@ package no.foodelicious.core.resources;
 import static com.yammer.dropwizard.testing.JsonHelpers.asJson;
 import static com.yammer.dropwizard.testing.JsonHelpers.fromJson;
 import static com.yammer.dropwizard.testing.JsonHelpers.jsonFixture;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +15,11 @@ import no.foodelicious.core.model.MeasuringUnit;
 import no.foodelicious.core.model.Recipe;
 import no.foodelicious.core.model.RecipeItem;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class RecipeParseTest {
 
 	@Test
-	@Ignore
 	public void producesTheExpectedJson() throws Exception {
 		Recipe recipe = creatRecipe();
 		assertThat(
@@ -30,7 +28,6 @@ public class RecipeParseTest {
 	}
 	
 	@Test
-	@Ignore
 	public void consumesTheExpectedJson() throws Exception {
 		Recipe recipe = creatRecipe();
 	    assertThat("parsing a valid API representation produces a recipe",
