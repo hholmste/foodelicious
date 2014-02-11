@@ -16,6 +16,12 @@ recipeControllers.controller('RecipeCtrl', ['$scope', '$http',
 			];
 		});
 
+		$scope.courseTypes = [
+			{name:'Starter', code:'STARTER'},
+			{name:'Main course', code:'MAIN_COURSE'},
+			{name:'Dessert', code:'DESSERT'}
+		];
+
 		$scope.saveRecipe = function(recipe) {
 			$http.post('http://localhost:8080/foodelicious/recipe', recipe).
 			success(function(data) {
