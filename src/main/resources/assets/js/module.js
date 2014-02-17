@@ -1,16 +1,18 @@
-var recipeModule = angular.module('recipeApp', [
+/* global angular */
+
+var recipeApp = angular.module('recipeApp', [
 	'ngRoute',
-	'recipeControllers'
+	'recipeController'
 ]);
 
-recipeModule.config(['$routeProvider', 
+recipeApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider
-			.when("/recipes", {
-				templateUrl: "/views/partials/recipe_overview.html"
+			.when('/recipes', {
+				templateUrl: '/views/partials/recipe_overview.html'
 			})
-			.when("/new", {
-				templateUrl: "/views/partials/recipe_detail.html"
+			.when('/new', {
+				templateUrl: '/views/partials/recipe_detail.html'
 			})
 			.otherwise({
 				redirectTo: '/recipes'
