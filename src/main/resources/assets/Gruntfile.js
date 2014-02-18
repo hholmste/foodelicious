@@ -5,6 +5,7 @@ module.exports = function(grunt) {
 	// load all grunt tasks
 	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
+	var apiProxyMiddleware = require('./tasks/lib/proxyMiddleware');
 
 	// configurable paths
 	var appPaths = {
@@ -19,20 +20,16 @@ module.exports = function(grunt) {
 		connect: {
 			server: {
 				options: {
-					port: 8081,
+					port: 8090,
 					base: '.',
-					keepalive: true
-				},
-				proxies: [
-					{
-						context: '/foodelicious',
-						host: 'localhost',
-						port: 8080,
-						changeOrigin: false,
-						https: false,
-						keepalive: true,
+					keepalive: true,
+					middleware: function(connect, options) {
+						return [
+							apiProxyMiddleware('http://localhost:8080', '/foodelicious'),
+							connect.static(options.base)
+						];
 					}
-				]
+				},
 			}
 		},
 		open: {
@@ -76,7 +73,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('server', function (target) {
 		grunt.task.run([
 			'connect:server',
-			'configureProxies:server',
 			'watch'
 		]);
 	});
