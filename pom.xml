@@ -12,9 +12,21 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<build>
 		<finalName>foodelicious</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <!-- Excluding grunt-related files -->
+                    <exclude>assets/Gruntfile.js</exclude>
+                    <exclude>assets/node_modules/</exclude>
+                    <exclude>assets/tasks/</exclude>
+                    <exclude>assets/package.json</exclude>
+                </excludes>
+            </resource>
+        </resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
