@@ -4,8 +4,9 @@
   "indent": 4,
   "undef": true,
   "quotmark": "single",
-  "maxlen": 80,
+  "maxlen": 120,
   "trailing": true,
   "expr": true,
-  "curly": true
+  "curly": true,
+  "globals": {"angular": false}
 }

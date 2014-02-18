@@ -1,5 +1,3 @@
-/* global angular */
-
 var recipeController = angular.module('recipeController', []);
 
 recipeController.controller('RecipeCtrl', ['$scope', '$http',

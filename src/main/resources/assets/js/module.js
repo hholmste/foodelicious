@@ -1,5 +1,3 @@
-/* global angular */
-
 var recipeApp = angular.module('recipeApp', [
 	'ngRoute',
 	'recipeController'
