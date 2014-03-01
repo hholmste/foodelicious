@@ -41,7 +41,7 @@ Then you need grunt:
 Now you have both node and grunt. The next step is to install the project dependencies. In 'src/main/resources/assets', run:
 
     npm install
-    
+
 This should install required dependencies (which are specified in package.json).
 
 Now you can run the configured grunt tasks.
