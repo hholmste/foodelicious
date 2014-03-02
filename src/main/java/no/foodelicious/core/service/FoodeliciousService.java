@@ -1,12 +1,12 @@
 package no.foodelicious.core.service;
 
-import org.eclipse.jetty.server.session.SessionHandler;
-
 import no.foodelicious.core.configuration.MainConfiguration;
 import no.foodelicious.core.factory.RepositoryFactory;
 import no.foodelicious.core.health.MongoHealth;
 import no.foodelicious.core.resources.ImageResource;
 import no.foodelicious.core.resources.RecipeResource;
+
+import org.eclipse.jetty.server.session.SessionHandler;
 
 import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import com.sun.jersey.api.container.filter.LoggingFilter;
@@ -25,7 +25,6 @@ public class FoodeliciousService extends Service<MainConfiguration> {
 	public void initialize(Bootstrap<MainConfiguration> bootstrap) {
 		bootstrap.setName("foodelicious");
 		bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/"));
-
 	}
 
 	@Override
