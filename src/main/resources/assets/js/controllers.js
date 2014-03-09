@@ -23,7 +23,7 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http',
 		];
 
 		$scope.saveRecipe = function(recipe) {
-			$http.post('/foodelicious/recipe', recipe).
+			$http.post('foodelicious/recipe', recipe).
 			success(function(data) {
 				$scope.statusText = 'Saved';
 			}).
