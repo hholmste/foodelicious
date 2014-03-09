@@ -37,7 +37,7 @@ logging:
     archivedFileCount: 5
 
     # The timezone used to format dates. HINT: USE THE DEFAULT, UTC.
-    timeZone: UTC
+    timeZone: GMT+01
 
   loggers:
     "com.sun.jersey.api.container.filter.LoggingFilter": INFO
