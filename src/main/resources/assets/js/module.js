@@ -9,8 +9,11 @@ recipeApp.config(['$routeProvider',
 			.when('/recipes', {
 				templateUrl: 'views/partials/recipe_overview.html'
 			})
-			.when('/new', {
+			.when('/recipes/:recipeId', {
 				templateUrl: 'views/partials/recipe_detail.html'
+			})
+			.when('/new', {
+				templateUrl: 'views/partials/recipe_new.html'
 			})
 			.otherwise({
 				redirectTo: '/recipes'
