@@ -14,7 +14,9 @@ import javax.ws.rs.core.Response;
 import no.foodelicious.core.model.Recipe;
 import no.foodelicious.core.repository.RecipeRepository;
 
-import org.mongodb.morphia.Key;
+import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.yammer.metrics.annotation.Timed;
 
@@ -22,6 +24,7 @@ import com.yammer.metrics.annotation.Timed;
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 public class RecipeResource {
+	private static final Logger LOG = LoggerFactory.getLogger(RecipeResource.class);
 
 	private RecipeRepository repository;
 	
@@ -38,13 +41,17 @@ public class RecipeResource {
 	@GET
 	@Timed
 	@Path("/{id}")
-	public Recipe getRecipe(@PathParam("id") Long id) {
-		return repository.findById(id);
+	public Recipe getRecipe(@PathParam("id") ObjectId id) {
+		Recipe recipe = repository.findById(id);
+		LOG.debug(String.format("Found %s for [id=%s].", recipe, id));
+		return recipe;
 	}
 
 	@POST
 	public Response createRecipe(Recipe recipe){
-		Key<Recipe> createdRecipe = repository.create(recipe);
-		return Response.status(Response.Status.CREATED).entity(createdRecipe).build();
+		Recipe createdRecipe = repository.create(recipe);
+		LOG.debug(String.format("Created recipe with id: [id=%s][machine=%s][timeSecond=%s][inc=%s].", createdRecipe.getId(), createdRecipe.getId().getMachine(), createdRecipe.getId().getTimeSecond(), createdRecipe.getId().getInc()));
+		Response response = Response.status(Response.Status.CREATED).entity(createdRecipe).build();
+		return response;
 	}
 }

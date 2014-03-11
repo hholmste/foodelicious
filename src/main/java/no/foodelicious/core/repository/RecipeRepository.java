@@ -4,8 +4,8 @@ import java.util.List;
 
 import no.foodelicious.core.model.Recipe;
 
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Key;
 
 public class RecipeRepository {
 	
@@ -15,15 +15,20 @@ public class RecipeRepository {
 		this.ds = ds;
 	}
 	
-	public Key<Recipe> create(Recipe recipe){
-		return ds.save(recipe);
+	public Recipe create(Recipe recipe){
+		ds.save(recipe);
+		return recipe;
 	}
 	
-	public Recipe findById(Long id){
+	public Recipe findById(ObjectId id){
 		return ds.get(Recipe.class, id);
 	}
 	
 	public List<Recipe> findAll(){
 		return ds.find(Recipe.class).asList();
+	}
+
+	public void delete(Recipe recipe) {
+		ds.delete(recipe);
 	}
 }
