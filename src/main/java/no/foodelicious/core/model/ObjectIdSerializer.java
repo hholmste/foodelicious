@@ -1,4 +1,4 @@
-package no.foodelicious.core.resources;
+package no.foodelicious.core.model;
 
 import java.io.IOException;
 
