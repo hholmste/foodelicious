@@ -7,10 +7,12 @@ recipeApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider
 			.when('/recipes', {
-				templateUrl: 'views/partials/recipe_overview.html'
+				templateUrl: 'views/partials/recipe_overview.html',
+				controller: 'RecipeCtrl'
 			})
 			.when('/recipes/:recipeId', {
-				templateUrl: 'views/partials/recipe_detail.html'
+				templateUrl: 'views/partials/recipe_detail.html',
+				controller: 'RecipeDetailCtrl'
 			})
 			.when('/new', {
 				templateUrl: 'views/partials/recipe_new.html'

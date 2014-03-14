@@ -31,4 +31,18 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http',
 				$scope.statusText = 'Error saving';
 			});
 		};
-	}]);
+	}
+]);
+
+recipeController.controller('RecipeDetailCtrl', ['$scope', '$http', '$routeParams',
+	function($scope, $http, $routeParams) {
+		$http.get('foodelicious/recipe/' + $routeParams.recipeId).
+		success(function(data) {
+			$scope.name = data.name;
+		}).
+		error(function(data) {
+			// default
+			$scope.name = 'Name not found';
+		});
+	}
+]);
