@@ -7,6 +7,7 @@ import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity("recipe")
 public class Recipe {
@@ -15,6 +16,7 @@ public class Recipe {
 		
 	}
 
+	@JsonSerialize(using = ObjectIdSerializer.class)
 	@Id
 	private ObjectId id;
 

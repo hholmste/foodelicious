@@ -1,11 +1,11 @@
 package no.foodelicious.core.matchers;
+
 import no.foodelicious.core.model.Recipe;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-
 
 public class RecipeMatcher {
 
@@ -16,11 +16,6 @@ public class RecipeMatcher {
 			public void describeTo(Description description) {
 				description.appendValue(a);
 			}
-
-//			@Override
-//			protected void describeMismatchSafely(Recipe item, Description mismatchDescription) {
-//				mismatchDescription.appendText(" was ").appendValue(item);
-//			}
 
 			@Override
 			protected boolean matchesSafely(Recipe b) {
@@ -38,5 +33,4 @@ public class RecipeMatcher {
 			}
 		};
 	}
-
 }
