@@ -1,7 +1,5 @@
 var recipeController = angular.module('recipeController', []);
 
-recipeController.controller('RecipeCtrl', ['$scope', '$http',
-	function($scope, $http) {
 recipeController.controller('RecipeCtrl', ['$scope', '$http','$location',
 	function($scope, $http, $location) {
 		$http.get('foodelicious/recipe').
