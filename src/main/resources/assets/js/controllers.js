@@ -2,6 +2,8 @@ var recipeController = angular.module('recipeController', []);
 
 recipeController.controller('RecipeCtrl', ['$scope', '$http',
 	function($scope, $http) {
+recipeController.controller('RecipeCtrl', ['$scope', '$http','$location',
+	function($scope, $http, $location) {
 		$http.get('foodelicious/recipe').
 		success(function(data) {
 			$scope.recipes = data;
@@ -26,6 +28,7 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http',
 			$http.post('foodelicious/recipe', recipe).
 			success(function(data) {
 				$scope.statusText = 'Saved';
+				$location.path('foodelicious/recipes');
 			}).
 			error(function(data) {
 				$scope.statusText = 'Error saving';
