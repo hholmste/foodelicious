@@ -39,7 +39,7 @@ recipeController.controller('RecipeDetailCtrl', ['$scope', '$http', '$routeParam
 	function($scope, $http, $routeParams) {
 		$http.get('foodelicious/recipe/' + $routeParams.recipeId).
 		success(function(data) {
-			$scope.name = data.name;
+			$scope.recipe = data;
 		}).
 		error(function(data) {
 			// default
