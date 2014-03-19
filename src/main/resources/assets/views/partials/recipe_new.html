@@ -2,71 +2,59 @@
     <h1>Register recipe</h1>
 
     <form class="form" ng-submit="saveRecipe(recipeForm.recipe)">
-        <div class="row clearfix">
-            <div id="img-placeholder" class="col-md-8">
-                <div class="fileinput fileinput-new" data-provides="fileinput">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%">
                     <div class="fileinput-preview thumbnail" data-trigger="fileinput"
-                         style="width: 300px; height: 170px;"></div>
+                         style="width: 100%; height: 250px;"></div>
                     <div>
 						<span class="btn btn-default btn-file">
-						<span class="fileinput-new"><span class="glyphicon glyphicon-camera"></span></span>
-					    <span class="fileinput-exists">Change</span> <input type="file" name="..."></span>
-                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                            <span class="fileinput-new"><span class="glyphicon glyphicon-camera"></span></span>
+                            <span class="fileinput-exists"><span class="glyphicon glyphicon-camera"></span></span>
+                            <input type="file" name="...">
+                        </span>
+                        <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput"><span
+                                class="glyphicon glyphicon-remove"></span></a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="form-group">
-                    <label for="name" class="col-md-12 control-label">Name</label>
-
-                    <div class="col-md-12">
-                        <input id="name" type="text" class="form-control" placeholder="Name"
-                               ng-model="recipeForm.recipe.name"/>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="description" class="col-md-12 control-label">Description</label>
-
-                    <div class="col-md-12">
-                        <input id="description"
-                               type="text" class="form-control" placeholder="Description"
-                               ng-model="recipeForm.recipe.description">
-                    </div>
+                    <label for="name" class="control-label">Name</label>
+                    <input id="name" type="text" class="form-control" placeholder="Name"
+                           ng-model="recipeForm.recipe.name"/>
                 </div>
                 <div class="form-group">
-                    <label for="directions" class="col-md-12 control-label">Directions</label>
-
-                    <div class="col-md-12">
-                        <input id="directions"
-                               type="textarea" class="form-control" placeholder="Directions"
-                               ng-model="recipeForm.recipe.directions">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="servings" class="col-md-12 control-label">Servings</label>
-
-                    <div class="col-md-12">
-                        <input id="servings" type="number" min="1" max="9" step="1" value="1"
-                               ng-model="recipeForm.recipe.servings"/>
-                    </div>
+                    <label for="description" class="control-label">Description</label>
+                    <input id="description"
+                           type="text" class="form-control" placeholder="Description"
+                           ng-model="recipeForm.recipe.description">
                 </div>
                 <div class="form-group">
-                    <label for="courseType" class="col-md-12 control-label">Course type</label>
-
-                    <div class="col-md-12">
-                        <select id="courseType" ng-model="recipeForm.recipe.courseType"
-                                ng-options="type.name for type in courseTypes">
-                        </select>
-                    </div>
+                    <label for="servings" class="control-label">Servings</label>
+                    <input id="servings" type="number" class="form-control" min="1" max="9" step="1" value="1"
+                           ng-model="recipeForm.recipe.servings"/>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
+                    <label for="courseType" class="control-label">Course type</label>
+                    <select id="courseType" class="form-control" ng-model="recipeForm.recipe.courseType"
+                            ng-options="type.name for type in courseTypes">
+                    </select>
                 </div>
+
                 {{statusText}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="directions" class="control-label">Directions</label>
+                    <textarea id="directions" class="form-control" ng-model="recipeForm.recipe.directions"
+                              rows="15"> </textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
             </div>
         </div>
     </form>
