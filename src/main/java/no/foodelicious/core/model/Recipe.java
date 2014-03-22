@@ -2,6 +2,7 @@ package no.foodelicious.core.model;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
@@ -32,7 +33,9 @@ public class Recipe {
 	@JsonProperty
 	private Integer servings;
 
-	@JsonProperty()
+	@JsonProperty
+    @JsonDeserialize(using = CourseTypeDeserializer.class)
+    @JsonSerialize(using = CourseTypeSerializer.class)
 	private CourseType courseType;
 
 	@JsonProperty

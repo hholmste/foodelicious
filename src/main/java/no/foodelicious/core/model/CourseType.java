@@ -2,7 +2,7 @@ package no.foodelicious.core.model;
 
 
 public enum CourseType {
-	APPETIZER,
+	STARTER,
 	MAIN_COURSE,
 	DESSERT;	
 }

@@ -4,7 +4,11 @@
     "description":"Some description",
     "directions":"Some directions",
     "servings":2,
-    "courseType":"MAIN_COURSE",
+    "courseType":
+    {
+        "name": "Main course",
+        "code": "MAIN_COURSE"
+    },
     "recipeItems":[
         {
             "ingredient":{
