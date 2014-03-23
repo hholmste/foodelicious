@@ -1,7 +1,7 @@
 package no.foodelicious.core.resources;
 
 import static org.fest.assertions.api.Assertions.assertThat;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import javax.ws.rs.core.MediaType;
 
