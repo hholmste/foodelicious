@@ -12,8 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import no.foodelicious.core.model.Recipe;
-import no.foodelicious.core.repository.RecipeRepository;
 
+import no.foodelicious.core.repository.Repository;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +26,9 @@ import com.yammer.metrics.annotation.Timed;
 public class RecipeResource {
 	private static final Logger LOG = LoggerFactory.getLogger(RecipeResource.class);
 
-	private RecipeRepository repository;
+	private Repository<Recipe> repository;
 	
-	public RecipeResource(RecipeRepository repository) {
+	public RecipeResource(Repository<Recipe> repository) {
 		this.repository = repository;
 	}
 

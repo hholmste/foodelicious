@@ -7,8 +7,9 @@ import no.foodelicious.core.configuration.MongoConfiguration;
 import no.foodelicious.core.factory.RepositoryFactory;
 import no.foodelicious.core.matchers.RecipeMatcher;
 import no.foodelicious.core.model.Recipe;
-import no.foodelicious.core.repository.RecipeRepository;
 
+import no.foodelicious.core.repository.RecipeRepository;
+import no.foodelicious.core.repository.Repository;
 import org.bson.types.ObjectId;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import org.junit.Test;
  */
 public class RecipeRepositoryIntegrationTest {
 
-	private RecipeRepository repository;
+	private Repository<Recipe> repository;
 
 	@Before
 	public void setup() {

@@ -2,6 +2,8 @@ package no.foodelicious.core.factory;
 
 import java.net.UnknownHostException;
 
+import no.foodelicious.core.repository.CircuitBreaker;
+import no.foodelicious.core.repository.Repository;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import org.slf4j.Logger;
@@ -22,8 +24,8 @@ public class RepositoryFactory {
 
 	private MongoClient mongoClient;
 
-	public RecipeRepository create(MongoConfiguration config){
-		return new RecipeRepository( getDatatore(config));
+	public Repository create(MongoConfiguration config){
+		return new CircuitBreaker(new RecipeRepository( getDatatore(config)));
 	}
 	
 	public GridFS createGridFS(MongoConfiguration config){
