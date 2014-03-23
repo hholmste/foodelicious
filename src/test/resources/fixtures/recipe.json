@@ -1,24 +1,23 @@
 {
-	"id":"5320c5e50364bb7b16ca3546",
-    "name":"Pizza",
-    "description":"Some description",
-    "directions":"Some directions",
-    "servings":2,
-    "courseType":
-    {
+    "id": "5320c5e50364bb7b16ca3546",
+    "name": "Pizza",
+    "description": "Some description",
+    "directions": "Some directions",
+    "servings": 2,
+    "courseType": {
         "name": "Main course",
         "code": "MAIN_COURSE"
     },
-    "recipeItems":[
+    "recipeItems": [
         {
-            "ingredient":{
-                "id":1,
-                "name":"Tomato",
-                "description":"Ingredient description"
+            "ingredient": {
+                "id": 1,
+                "name": "Tomato",
+                "description": "Ingredient description"
             },
-            "measuringUnit":"Kilograms",
-            "number":2
+            "measuringUnit": "Kilograms",
+            "number": 2
         }
     ],
-    "source":"www.someplace.com"
+    "source": "www.someplace.com"
 }

@@ -5,6 +5,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 
+import java.io.IOException;
+
 public class CourseTypeSerializer extends JsonSerializer<CourseType> {
 
     @Override

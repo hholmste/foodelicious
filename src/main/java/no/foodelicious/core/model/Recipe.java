@@ -34,8 +34,8 @@ public class Recipe {
 	private Integer servings;
 
 	@JsonProperty
-    @JsonDeserialize(using = CourseTypeDeserializer.class)
-    @JsonSerialize(using = CourseTypeSerializer.class)
+	@JsonDeserialize(using = CourseTypeDeserializer.class)
+	@JsonSerialize(using = CourseTypeSerializer.class)
 	private CourseType courseType;
 
 	@JsonProperty

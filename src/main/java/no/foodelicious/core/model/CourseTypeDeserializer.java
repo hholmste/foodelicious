@@ -9,15 +9,15 @@ import java.io.IOException;
 
 public class CourseTypeDeserializer extends JsonDeserializer<CourseType> {
 
-    @Override
-    public CourseType deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
-        ObjectCodec oc = jsonParser.getCodec();
-        JsonNode node = oc.readTree(jsonParser);
+	@Override
+	public CourseType deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
+		ObjectCodec oc = jsonParser.getCodec();
+		JsonNode node = oc.readTree(jsonParser);
 
-        if (node.get("code") != null) {
-            return CourseType.valueOf(node.get("code").asText());
-        }
-        return null;
-    }
+		if (node.get("code") != null) {
+			return CourseType.valueOf(node.get("code").asText());
+		}
+		return null;
+	}
 
 }
