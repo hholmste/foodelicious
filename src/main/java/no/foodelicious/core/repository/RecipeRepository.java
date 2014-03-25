@@ -1,5 +1,6 @@
 package no.foodelicious.core.repository;
 
+import java.util.Collections;
 import java.util.List;
 
 import no.foodelicious.core.model.Recipe;
@@ -25,7 +26,10 @@ public class RecipeRepository {
 	}
 	
 	public List<Recipe> findAll(){
-		return ds.find(Recipe.class).asList();
+	    
+		List<Recipe> recipes = ds.find(Recipe.class).asList();
+		Collections.reverse(recipes);
+		return recipes;
 	}
 
 	public void delete(Recipe recipe) {
