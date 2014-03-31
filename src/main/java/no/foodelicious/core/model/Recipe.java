@@ -43,6 +43,9 @@ public class Recipe {
 
 	@JsonProperty
 	private String source;
+	
+	@JsonProperty
+	private String imageId;
 
 	public ObjectId getId() {
 		return id;
@@ -108,7 +111,15 @@ public class Recipe {
 		this.source = source;
 	}
 
-	@Override
+	public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
+    @Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
