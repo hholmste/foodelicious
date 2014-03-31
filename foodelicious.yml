@@ -7,6 +7,7 @@ mongoConfiguration:
   # the JDBC URL
   url: localhost
   port: 27017
+  database: databaseName
 
 
 assets:

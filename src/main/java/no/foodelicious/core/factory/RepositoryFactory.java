@@ -28,7 +28,7 @@ public class RepositoryFactory {
 	
 	public GridFS createGridFS(MongoConfiguration config){
 		Mongo mongo = getDatatore(config).getMongo();
-		DB db = mongo.getDB("foodelicious");
+		DB db = mongo.getDB(config.getDatabase());
 		GridFS gridFS = new GridFS(db);
 		return gridFS;
 	}
@@ -39,9 +39,9 @@ public class RepositoryFactory {
 			mongoClient = new MongoClient(config.getUrl(), config.getPort());
 			return new Morphia()
 			.map(Recipe.class)
-			.createDatastore(mongoClient, "foodelicious");
+			.createDatastore(mongoClient, config.getDatabase());
 		} catch (UnknownHostException e) {
-			LOG.error(String.format("Error connecting to mongo database at %s:%d", config.getUrl(), config.getPort()), e);
+			LOG.error(String.format("Error connecting to mongo database at %s:%d", config.getUrl(), config.getPort(), config.getDatabase()), e);
 		}
 		return null;
 	}

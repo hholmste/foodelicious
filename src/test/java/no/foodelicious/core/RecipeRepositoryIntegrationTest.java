@@ -22,7 +22,7 @@ public class RecipeRepositoryIntegrationTest {
 
 	@Before
 	public void setup() {
-		repository = new RepositoryFactory().create(new MongoConfiguration("localhost", 27017));
+		repository = new RepositoryFactory().create(new MongoConfiguration("localhost", 27017, "databaseName"));
 	}
 
 	@Test

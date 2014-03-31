@@ -20,7 +20,7 @@ import com.mongodb.gridfs.GridFSInputFile;
  */
 public class GridFSTest {
 //	private static final Logger LOG = LoggerFactory.getLogger(GridFSTest.class);
-	GridFS gridFs = new RepositoryFactory().createGridFS(new MongoConfiguration("127.0.0.1", 27017));
+	GridFS gridFs = new RepositoryFactory().createGridFS(new MongoConfiguration("127.0.0.1", 27017, "databaseName"));
 
 	@Test
 	@Ignore

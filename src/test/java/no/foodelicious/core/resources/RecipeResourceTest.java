@@ -18,7 +18,7 @@ public class RecipeResourceTest extends ResourceTest {
 
 	@Override
 	protected void setUpResources() throws Exception {
-		addResource(new RecipeResource(new RepositoryFactory().create(new MongoConfiguration("localhost", 27017))));
+		addResource(new RecipeResource(new RepositoryFactory().create(new MongoConfiguration("localhost", 27017, "databaseName"))));
 	}
 
 	@Test

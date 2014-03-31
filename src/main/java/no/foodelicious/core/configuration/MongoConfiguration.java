@@ -11,9 +11,10 @@ public class MongoConfiguration {
 	public MongoConfiguration() {
 	}
 
-	public MongoConfiguration(String url, int port) {
+	public MongoConfiguration(String url, int port, String database) {
 		this.url = url;
 		this.port = port;
+		this.database = database;
 	}
 
 	@NotNull
@@ -25,11 +26,19 @@ public class MongoConfiguration {
 	@JsonProperty
 	private int port;
 	
+	@NotNull
+	@JsonProperty
+	private String database;
+	
 	public String getUrl(){
 		return url;
 	}
 	
 	public int getPort(){
 		return port;
+	}
+	
+	public String getDatabase(){
+	    return database;
 	}
 }
