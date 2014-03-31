@@ -1,7 +1,45 @@
 var recipeController = angular.module('recipeController', []);
 
-recipeController.controller('RecipeCtrl', ['$scope', '$http','$location',
-	function($scope, $http, $location) {
+recipeController.directive('fileModel', ['$parse', function ($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var model = $parse(attrs.fileModel);
+            var modelSetter = model.assign;
+            
+            element.bind('change', function(){
+                scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}]);
+
+recipeController.service('fileUpload', ['$http', function ($http) {
+	return {
+		async: function(file, uploadUrl){
+        var fd = new FormData();
+        fd.append('file', file);
+        $http.post(uploadUrl, fd, {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+        })
+        .success(function(data){
+        	return data;
+        })
+        .error(function(){
+        	console.log('error saving file!')
+        });
+
+	}
+};
+    
+    
+}]);
+
+recipeController.controller('RecipeCtrl', ['$scope', '$http','$location', 'fileUpload',
+	function($scope, $http, $location, fileUpload) {
 		$http.get('foodelicious/recipe').
 		success(function(data) {
 			$scope.recipes = data;
@@ -23,17 +61,54 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http','$location',
 		];
 
 		$scope.saveRecipe = function(recipe) {
-			$http.post('foodelicious/recipe', recipe).
-			success(function(data) {
-				$scope.statusText = 'Saved';
-				$location.path('foodelicious/recipes');
-			}).
-			error(function(data) {
-				$scope.statusText = 'Error saving';
-			});
+
+			var file = $scope.image;
+			var uploadUrl = 'foodelicious/image';
+
+			var fd = new FormData();
+	        fd.append('file', file);
+	        $http.post(uploadUrl, fd, {
+	            transformRequest: angular.identity,
+	            headers: {'Content-Type': undefined}
+	        })
+	        .success(function(data){
+	        	//recipe.imageId = 'gggggg';
+	        	var recipe1 = recipe;
+	        	recipe1.imageId = data;
+				$http.post('foodelicious/recipe', recipe1).
+
+					success(function(data) {
+						$scope.statusText = 'Recipe saved';
+						$location.path('foodelicious/recipes');
+					}).
+					error(function(data) {
+						$scope.statusText = 'Error saving';
+					});
+
+
+
+	        })
+	        .error(function(){
+	        	$scope.statusText = 'Error saving image';
+	        });
+
+
+			//var imageId = fileUpload.uploadFileToUrl(file, uploadUrl);
+			
+
+			//$http.post('foodelicious/recipe', recipe).
+			//success(function(data) {
+			//	$scope.statusText = 'Saved';
+		//		$location.path('foodelicious/recipes');
+		//	}).
+		//	error(function(data) {
+		//		$scope.statusText = 'Error saving';
+		//	});
 		};
 	}
 ]);
+
+
 
 recipeController.controller('RecipeDetailCtrl', ['$scope', '$http', '$routeParams',
 	function($scope, $http, $routeParams) {
