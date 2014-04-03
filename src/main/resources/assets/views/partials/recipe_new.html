@@ -30,18 +30,23 @@
                            type="text" class="form-control" placeholder="Description"
                            ng-model="recipeForm.recipe.description">
                 </div>
-                <div class="form-group">
-                    <label for="servings" class="control-label">Servings</label>
-                    <input id="servings" type="number" class="form-control" min="1" max="9" step="1" value="1"
-                           ng-model="recipeForm.recipe.servings"/>
+                <div class="row">
+                    <div class="col-md-6">
+                    <div class="form-group">
+                            <label for="courseType" class="control-label">Course type</label>
+                            <select id="courseType" class="form-control" ng-model="recipeForm.recipe.courseType"
+                                ng-options="type.name for type in courseTypes">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="servings" class="control-label">Servings</label>
+                            <input id="servings" type="number" class="form-control" min="1" max="9" step="1" value="1"
+                            ng-model="recipeForm.recipe.servings"/>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="courseType" class="control-label">Course type</label>
-                    <select id="courseType" class="form-control" ng-model="recipeForm.recipe.courseType"
-                            ng-options="type.name for type in courseTypes">
-                    </select>
-                </div>
-
                 {{statusText}}
             </div>
         </div>
