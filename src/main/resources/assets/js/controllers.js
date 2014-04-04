@@ -31,11 +31,8 @@ recipeController.service('fileUpload', ['$http', function ($http) {
         .error(function(){
         	console.log('error saving file!')
         });
-
 	}
 };
-    
-    
 }]);
 
 recipeController.controller('RecipeCtrl', ['$scope', '$http','$location', 'fileUpload',
@@ -76,7 +73,6 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http','$location', 'fileU
 	        	var recipe1 = recipe;
 	        	recipe1.imageId = data;
 				$http.post('foodelicious/recipe', recipe1).
-
 					success(function(data) {
 						$scope.statusText = 'Recipe saved';
 						$location.path('foodelicious/recipes');
@@ -84,26 +80,10 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http','$location', 'fileU
 					error(function(data) {
 						$scope.statusText = 'Error saving';
 					});
-
-
-
 	        })
 	        .error(function(){
 	        	$scope.statusText = 'Error saving image';
 	        });
-
-
-			//var imageId = fileUpload.uploadFileToUrl(file, uploadUrl);
-			
-
-			//$http.post('foodelicious/recipe', recipe).
-			//success(function(data) {
-			//	$scope.statusText = 'Saved';
-		//		$location.path('foodelicious/recipes');
-		//	}).
-		//	error(function(data) {
-		//		$scope.statusText = 'Error saving';
-		//	});
 		};
 	}
 ]);
@@ -117,7 +97,6 @@ recipeController.controller('RecipeDetailCtrl', ['$scope', '$http', '$routeParam
 			$scope.recipe = data;
 		}).
 		error(function(data) {
-			// default
 			$scope.name = 'Name not found';
 		});
 	}
