@@ -1,30 +1,31 @@
 <div ng-controller="RecipeDetailCtrl">
-    <h1>{{recipe.name}}</h1>
-    <h5>{{recipe.description}}</h5>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="foodelicious/image/{{recipe.imageId}}" style="width: 100%"/>
+        </div>
+        <div class="col-md-6">
+            <div class="page-header">
+                <h1>{{recipe.name}} </h1><span class="label label-default">{{recipe.courseType.name}}</span>
+                <h5>{{recipe.description}}</h5>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-2">
+                    <p>
+                        {{recipe.servings}} porsjoner<br/>
 
-    <p>
+                    </p>
+                </div>
+                <div class="col-md-10">
+                    <p>
+                        {{recipe.directions}}
+                    </p>
+                </div>
+            </div>
 
-    <h3>Servings</h3>
-    {{recipe.servings}}
-    </p>
 
-    <p>
-
-    <h3>Course type</h3>
-    {{recipe.courseType.name}}
-    </p>
-
-    <p>
-
-    <h3>Directions</h3>
-    {{recipe.directions}}
-    </p>
-
-	<p>
-	<h3>Image id</h3>
-    {{recipe.imageId}}
-    </p>
-
-    <img src="foodelicious/image/{{recipe.imageId}}"/>
+            
+        </div>
+    </div>
 
 </div>
