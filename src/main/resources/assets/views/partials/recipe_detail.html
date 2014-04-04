@@ -1,4 +1,4 @@
-<div ng-controller="RecipeCtrl">
+<div ng-controller="RecipeDetailCtrl">
     <h1>{{recipe.name}}</h1>
     <h5>{{recipe.description}}</h5>
 
@@ -24,5 +24,7 @@
 	<h3>Image id</h3>
     {{recipe.imageId}}
     </p>
+
+    <img src="foodelicious/image/{{recipe.imageId}}"/>
 
 </div>
