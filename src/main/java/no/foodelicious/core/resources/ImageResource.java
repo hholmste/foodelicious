@@ -47,6 +47,7 @@ public class ImageResource {
 			@FormDataParam("file") FormDataContentDisposition fileDetail) {
 		try {
 			GridFSInputFile file = gridFs.createFile(inputStream, fileDetail.getFileName());
+			file.setContentType("image/jpeg");
 			file.save();
 			return Response.ok(file.getId().toString()).build();
 		} catch (Exception e) {
