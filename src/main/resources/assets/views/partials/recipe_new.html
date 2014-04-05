@@ -27,9 +27,11 @@
                 </div>
                 <div class="form-group">
                     <label for="description" class="control-label">Description</label>
-                    <input id="description"
-                           type="text" class="form-control" placeholder="Description"
-                           ng-model="recipeForm.recipe.description">
+                    <div contenteditable 
+                          id="description" ng-model="recipeForm.recipe.description"
+                          strip-br="true"
+                          required
+                          class="recipe-description form-control"></div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
@@ -55,8 +57,11 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="directions" class="control-label">Directions</label>
-                    <textarea id="directions" class="form-control" ng-model="recipeForm.recipe.directions"
-                              rows="15"> </textarea>
+                    <div contenteditable 
+                          id="directions" ng-model="recipeForm.recipe.directions"
+                          strip-br="true"
+                          required
+                          class="recipe-directions form-control"></div>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>

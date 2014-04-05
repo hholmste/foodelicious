@@ -1,5 +1,6 @@
 var recipeApp = angular.module('recipeApp', [
 	'ngRoute',
+	'ngSanitize',
 	'recipeController'
 ]);
 

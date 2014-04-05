@@ -1,4 +1,36 @@
-var recipeController = angular.module('recipeController', []);
+var recipeController = angular.module('recipeController', [	'ngSanitize']);
+
+recipeController.directive('contenteditable', function() {
+    return {
+      restrict: 'A', // only activate on element attribute
+      require: '?ngModel', // get a hold of NgModelController
+      link: function(scope, element, attrs, ngModel) {
+        if(!ngModel) return; // do nothing if no ng-model
+ 
+        // Specify how UI should be updated
+        ngModel.$render = function() {
+          element.html(ngModel.$viewValue || '');
+        };
+ 
+        // Listen for change events to enable binding
+        element.on('blur keyup change', function() {
+          scope.$apply(read);
+        });
+        read(); // initialize
+ 
+        // Write data to the model
+        function read() {
+          var html = element.html();
+          // When we clear the content editable the browser leaves a <br> behind
+          // If strip-br attribute is provided then we strip this out
+          if( attrs.stripBr && html == '<br>' ) {
+            html = '';
+          }
+          ngModel.$setViewValue(html);
+        }
+      }
+    };
+  });
 
 recipeController.directive('fileModel', ['$parse', function ($parse) {
     return {
@@ -90,11 +122,12 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http','$location', 'fileU
 
 
 
-recipeController.controller('RecipeDetailCtrl', ['$scope', '$http', '$routeParams',
+recipeController.controller('RecipeDetailCtrl', ['$scope', '$http', '$routeParams', 
 	function($scope, $http, $routeParams) {
 		$http.get('foodelicious/recipe/' + $routeParams.recipeId).
 		success(function(data) {
 			$scope.recipe = data;
+			
 		}).
 		error(function(data) {
 			$scope.name = 'Name not found';
