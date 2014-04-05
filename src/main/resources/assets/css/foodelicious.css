@@ -2,21 +2,6 @@ body {
   padding-top: 50px;
 }
 
-.main {
-  padding: 40px 15px;
-  text-align: center;
-}
-
-.centered {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-}
-
 .nopadding{
     padding-left: 0px !important;
     padding-right: 0px !important;

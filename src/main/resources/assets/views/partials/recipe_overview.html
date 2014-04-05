@@ -2,7 +2,7 @@
 	<ul>
 		<li ng-repeat="recipe in recipes">
 			<a href="#/recipes/{{recipe.id}}">{{recipe.name}}</a>
-			<p>{{recipe.description}}</p>
+			<p ng-bind-html="recipe.description"></p>
 		</li>
 	</ul>
 </div>
