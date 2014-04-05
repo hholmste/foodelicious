@@ -7,7 +7,9 @@ body {
     padding-right: 0px !important;
 }
 
-
+.padded-container {
+	padding: 20px;
+}
 
 /******************** NEW RECIPE *******************/
 .form-control.recipe-directions, .form-control.recipe-description{
