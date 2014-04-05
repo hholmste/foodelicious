@@ -48,6 +48,7 @@ public class RecipeParseTest {
 		recipe.setRecipeItems(creatRecipeItems());
 		recipe.setSource("www.someplace.com");
 		recipe.setImageId("abc");
+        recipe.setIngredients("Some ingredients");
 		return recipe;
 	}
 

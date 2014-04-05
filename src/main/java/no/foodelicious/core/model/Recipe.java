@@ -1,14 +1,13 @@
 package no.foodelicious.core.model;
 
-import java.util.List;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.util.List;
 
 @Entity("recipe")
 public class Recipe {
@@ -37,6 +36,9 @@ public class Recipe {
 	@JsonDeserialize(using = CourseTypeDeserializer.class)
 	@JsonSerialize(using = CourseTypeSerializer.class)
 	private CourseType courseType;
+
+    @JsonProperty
+    private String ingredients;
 
 	@JsonProperty
 	private List<RecipeItem> recipeItems;
@@ -117,6 +119,14 @@ public class Recipe {
 
     public void setImageId(String imageId) {
         this.imageId = imageId;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     @Override

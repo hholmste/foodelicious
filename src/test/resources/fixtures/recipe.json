@@ -8,6 +8,7 @@
         "name": "Main course",
         "code": "MAIN_COURSE"
     },
+    "ingredients": "Some ingredients",
     "recipeItems": [
         {
             "ingredient": {
