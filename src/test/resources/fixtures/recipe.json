@@ -5,7 +5,7 @@
     "directions": "Some directions",
     "servings": 2,
     "courseType": {
-        "name": "Dinner",
+        "name": "Middag",
         "code": "DINNER"
     },
     "ingredients": "Some ingredients",

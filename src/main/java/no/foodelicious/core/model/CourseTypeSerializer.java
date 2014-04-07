@@ -12,13 +12,8 @@ public class CourseTypeSerializer extends JsonSerializer<CourseType> {
     @Override
     public void serialize(CourseType courseType, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
         jsonGenerator.writeStartObject();
-        jsonGenerator.writeStringField("name", uncase(courseType.name()));
-        jsonGenerator.writeStringField("code", courseType.getName());
+        jsonGenerator.writeStringField("name", courseType.getName());
+        jsonGenerator.writeStringField("code", courseType.name());
         jsonGenerator.writeEndObject();
-    }
-
-    private String uncase(String allUpper) {
-        String allLower = allUpper.replace('_', ' ').toLowerCase();
-        return allLower.substring(0, 1).toUpperCase() + allLower.substring(1);
     }
 }
