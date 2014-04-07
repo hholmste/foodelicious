@@ -13,7 +13,7 @@ public class CourseTypeSerializer extends JsonSerializer<CourseType> {
     public void serialize(CourseType courseType, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
         jsonGenerator.writeStartObject();
         jsonGenerator.writeStringField("name", uncase(courseType.name()));
-        jsonGenerator.writeStringField("code", courseType.name());
+        jsonGenerator.writeStringField("code", courseType.getName());
         jsonGenerator.writeEndObject();
     }
 
