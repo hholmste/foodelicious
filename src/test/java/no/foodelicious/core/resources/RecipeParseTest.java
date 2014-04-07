@@ -44,7 +44,7 @@ public class RecipeParseTest {
 		recipe.setDescription("Some description");
 		recipe.setDirections("Some directions");
 		recipe.setServings(2);
-		recipe.setCourseType(CourseType.MAIN_COURSE);
+		recipe.setCourseType(CourseType.DINNER);
 		recipe.setRecipeItems(creatRecipeItems());
 		recipe.setSource("www.someplace.com");
 		recipe.setImageId("abc");

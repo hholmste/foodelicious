@@ -84,9 +84,15 @@ recipeController.controller('RecipeCtrl', ['$scope', '$http','$location', 'fileU
 		});
 
 		$scope.courseTypes = [
-			{name:'Starter', code:'STARTER'},
-			{name:'Main course', code:'MAIN_COURSE'},
-			{name:'Dessert', code:'DESSERT'}
+			{name:'Dessert', code:'DESSERT'},
+			{name:'Drikke', code:'DRINK'},
+			{name:'Forrett', code:'STARTER'},
+			{name:'Gjærbakst', code:'PASTERY'},
+			{name:'Kake', code:'CAKE'},
+			{name:'Middag', code:'DINNER'},
+			{name:'Salat', code:'SALAD'},
+			{name:'Saus', code:'SAUCE'},
+			{name:'Smårett', code:'SNACK'}
 		];
 
 		$scope.saveRecipe = function(recipe) {

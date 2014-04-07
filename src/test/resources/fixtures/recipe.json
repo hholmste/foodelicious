@@ -5,8 +5,8 @@
     "directions": "Some directions",
     "servings": 2,
     "courseType": {
-        "name": "Main course",
-        "code": "MAIN_COURSE"
+        "name": "Dinner",
+        "code": "DINNER"
     },
     "ingredients": "Some ingredients",
     "recipeItems": [
