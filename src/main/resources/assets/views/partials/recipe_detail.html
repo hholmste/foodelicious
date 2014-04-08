@@ -12,9 +12,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-lg-6">
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-md-4">
                     <div class="padded-container">
                         <p>
                             {{recipe.servings}} porsjoner<br/>
@@ -25,8 +25,10 @@
                         <p ng-bind-html="recipe.ingredients"></p>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <p ng-bind-html="recipe.directions"></p>
+                <div class="col-md-8">
+                    <div class="padded-container">
+                        <p ng-bind-html="recipe.directions"></p>
+                    </div>
                 </div>
             </div>
         </div>
