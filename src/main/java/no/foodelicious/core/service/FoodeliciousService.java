@@ -24,7 +24,7 @@ public class FoodeliciousService extends Service<MainConfiguration> {
 	@Override
 	public void initialize(Bootstrap<MainConfiguration> bootstrap) {
 		bootstrap.setName("foodelicious");
-		bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/"));
+		bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
 	}
 
 	@Override
