@@ -4,8 +4,9 @@ var recipeApp = angular.module('recipeApp', [
 	'recipeController'
 ]);
 
-recipeApp.config(['$routeProvider',
-	function($routeProvider) {
+recipeApp.config(['$routeProvider','$locationProvider',
+	function($routeProvider,$locationProvider) {
+		$locationProvider.html5Mode(true);
 		$routeProvider
 			.when('/recipes', {
 				templateUrl: 'views/partials/recipe_overview.html',
