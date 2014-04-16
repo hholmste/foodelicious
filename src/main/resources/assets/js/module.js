@@ -8,9 +8,6 @@ recipeApp.config(['$routeProvider','$locationProvider',
 	function($routeProvider,$locationProvider) {
 		$locationProvider.html5Mode(true);
 		$routeProvider
-			.when('/', {
-				templateUrl: 'views/partials/recipe_overview.html'
-			})
 			.when('/recipes', {
 				templateUrl: 'views/partials/recipe_overview.html',
 				controller: 'RecipeCtrl'
