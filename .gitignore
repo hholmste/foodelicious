@@ -8,3 +8,5 @@ target/
 bin/
 node_modules
 logs/
+
+dependency-reduced-pom.xml
