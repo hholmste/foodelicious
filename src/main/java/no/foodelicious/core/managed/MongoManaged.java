@@ -1,7 +1,8 @@
 package no.foodelicious.core.managed;
 
+import io.dropwizard.lifecycle.Managed;
+
 import com.mongodb.Mongo;
-import com.yammer.dropwizard.lifecycle.Managed;
 
 public class MongoManaged implements Managed {
 	

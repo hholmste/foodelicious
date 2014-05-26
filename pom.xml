@@ -9,28 +9,24 @@
 
 	<name>foodelicious</name>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
 	<prerequisites>
 		<maven>3.1.1</maven>
 	</prerequisites>
 
 	<build>
 		<finalName>foodelicious</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <excludes>
-                    <!-- Excluding grunt-related files -->
-                    <exclude>assets/Gruntfile.js</exclude>
-                    <exclude>assets/node_modules/</exclude>
-                    <exclude>assets/tasks/</exclude>
-                    <exclude>assets/package.json</exclude>
-                </excludes>
-            </resource>
-        </resources>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<excludes>
+					<!-- Excluding grunt-related files -->
+					<exclude>assets/Gruntfile.js</exclude>
+					<exclude>assets/node_modules/</exclude>
+					<exclude>assets/tasks/</exclude>
+					<exclude>assets/package.json</exclude>
+				</excludes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -65,10 +61,11 @@
 						</goals>
 						<configuration>
 							<transformers>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                    				<resource>foodelicious.yml</resource>
-                    				<file>foodelicious.yml</file>
-                				</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+									<resource>foodelicious.yml</resource>
+									<file>foodelicious.yml</file>
+								</transformer>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer
@@ -83,43 +80,54 @@
 		</plugins>
 	</build>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dropwizard.version>0.7.0</dropwizard.version>
+		<morphia.version>0.105</morphia.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
-			<groupId>com.yammer.dropwizard</groupId>
+			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-testing</artifactId>
-			<version>0.6.2</version>
+			<version>${dropwizard.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.yammer.dropwizard</groupId>
+			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-core</artifactId>
-			<version>0.6.2</version>
+			<version>${dropwizard.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.bazaarvoice.dropwizard</groupId>
 			<artifactId>dropwizard-configurable-assets-bundle</artifactId>
-			<version>0.1.11</version>
+			<version>0.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey.contribs</groupId>
 			<artifactId>jersey-multipart</artifactId>
-			<version>1.17.1</version>
+			<version>1.18.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.18.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.jayway.restassured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>1.8.1</version>
 			<scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.hamcrest</groupId>
-                    <artifactId>hamcrest-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.hamcrest</groupId>
-                    <artifactId>hamcrest-library</artifactId>
-                </exclusion>
-            </exclusions>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hamcrest</groupId>
+					<artifactId>hamcrest-library</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.mongodb.morphia</groupId>
@@ -134,12 +142,18 @@
 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
+			<version>1.1.0.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
 			<version>1.40</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>

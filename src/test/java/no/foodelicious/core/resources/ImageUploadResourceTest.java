@@ -3,6 +3,7 @@ package no.foodelicious.core.resources;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
+import io.dropwizard.testing.junit.ResourceTestRule;
 
 import java.io.File;
 import java.io.InputStream;
@@ -11,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.fest.assertions.api.Assertions;
 import org.junit.Before;
+import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -22,13 +24,17 @@ import com.mongodb.gridfs.GridFSInputFile;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.file.FileDataBodyPart;
-import com.yammer.dropwizard.testing.ResourceTest;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ImageUploadResourceTest extends ResourceTest {
-
+public class ImageUploadResourceTest{
+	
 	@Mock
-	private GridFS mockGridFs;
+	private static GridFS mockGridFs;
+	
+	@ClassRule
+    public static final ResourceTestRule resources = ResourceTestRule.builder()
+            .addResource(new ImageResource(mockGridFs))
+            .build();
 
 	@Mock
 	private GridFSInputFile mockGridFSInputFile;
@@ -39,16 +45,11 @@ public class ImageUploadResourceTest extends ResourceTest {
 		when(mockGridFSInputFile.getId()).thenReturn("id");
 	}
 
-	@Override
-	protected void setUpResources() throws Exception {
-		addResource(new ImageResource(mockGridFs));
-	}
-
 	@Test
 	public void testImageUploadResourceOk() throws Exception{
 		final FormDataMultiPart multipart = createRequest();
 
-		ClientResponse postResponse = client().resource("/image").type(MediaType.MULTIPART_FORM_DATA).post(ClientResponse.class, multipart);
+		ClientResponse postResponse = resources.client().resource("/image").type(MediaType.MULTIPART_FORM_DATA).post(ClientResponse.class, multipart);
 		Assertions.assertThat(postResponse.getStatus()).isEqualTo(200);
 	}
 
@@ -57,7 +58,7 @@ public class ImageUploadResourceTest extends ResourceTest {
 		final FormDataMultiPart multipart = createRequest();
 		doThrow(new MongoException("foo")).when(mockGridFSInputFile).save();
 		
-		ClientResponse postResponse = client().resource("/image").type(MediaType.MULTIPART_FORM_DATA).post(ClientResponse.class, multipart);
+		ClientResponse postResponse = resources.client().resource("/image").type(MediaType.MULTIPART_FORM_DATA).post(ClientResponse.class, multipart);
 		Assertions.assertThat(postResponse.getStatus()).isEqualTo(500);
 	}
 

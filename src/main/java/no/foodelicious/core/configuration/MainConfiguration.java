@@ -1,11 +1,12 @@
 package no.foodelicious.core.configuration;
 
+import io.dropwizard.Configuration;
+
 import javax.validation.constraints.NotNull;
 
 import com.bazaarvoice.dropwizard.assets.AssetsBundleConfiguration;
 import com.bazaarvoice.dropwizard.assets.AssetsConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.yammer.dropwizard.config.Configuration;
 
 public class MainConfiguration extends Configuration implements AssetsBundleConfiguration{
 	

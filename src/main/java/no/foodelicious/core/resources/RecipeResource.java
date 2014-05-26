@@ -18,7 +18,8 @@ import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.yammer.metrics.annotation.Timed;
+import com.codahale.metrics.annotation.Timed;
+
 
 @Path("/recipe")
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")
