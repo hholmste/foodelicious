@@ -15,6 +15,15 @@ recipeApp.config(['$routeProvider',
 				templateUrl: 'views/partials/recipe_detail.html',
 				controller: 'RecipeDetailCtrl'
 			})
+			.when('/shoppinglist', {
+                templateUrl: 'views/partials/shoppinglist_new.html'
+            })
+            .when('/shoppinglistAdd', {
+                templateUrl: 'views/partials/shoppinglist_add_recipe.html'
+            })
+            .when('/shoppinglistOverview', {
+                templateUrl: 'views/partials/shoppinglist_overview.html'
+            })
 			.when('/new', {
 				templateUrl: 'views/partials/recipe_new.html'
 			})
