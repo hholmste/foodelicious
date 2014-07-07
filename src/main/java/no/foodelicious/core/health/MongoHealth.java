@@ -1,14 +1,14 @@
 package no.foodelicious.core.health;
 
+import com.codahale.metrics.health.HealthCheck;
 import com.mongodb.Mongo;
-import com.yammer.metrics.core.HealthCheck;
 
 public class MongoHealth extends HealthCheck {
 
 	private Mongo mongo;
 	
 	public MongoHealth(Mongo name) {
-		super("MongoDBHealthCheck");
+		super();
 	}
 
 	@Override
