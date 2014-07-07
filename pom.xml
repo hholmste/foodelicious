@@ -10,7 +10,7 @@
 	<name>foodelicious</name>
 
 	<prerequisites>
-		<maven>3.1.1</maven>
+		<maven>3.2.2</maven>
 	</prerequisites>
 
 	<build>
