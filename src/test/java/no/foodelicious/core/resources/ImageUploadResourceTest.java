@@ -27,10 +27,9 @@ import com.sun.jersey.multipart.file.FileDataBodyPart;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ImageUploadResourceTest{
-	
-	@Mock
-	private static GridFS mockGridFs;
-	
+
+	private static final GridFS mockGridFs = mock(GridFS.class);
+
 	@ClassRule
     public static final ResourceTestRule resources = ResourceTestRule.builder()
             .addResource(new ImageResource(mockGridFs))
