@@ -39,7 +39,7 @@ public class FoodeliciousService extends Application<MainConfiguration> {
 		
 
 		// health checks goes here
-		environment.jersey().register(new MongoHealth(new RepositoryFactory().getDatatore(configuration.getMongoConfig()).getMongo()));
+		environment.healthChecks().register("MongoDB", new MongoHealth(new RepositoryFactory().getDatatore(configuration.getMongoConfig()).getMongo()));
 		
 		environment.jersey().register(new SessionHandler());
 	}
