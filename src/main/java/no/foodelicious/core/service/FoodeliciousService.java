@@ -10,10 +10,7 @@ import no.foodelicious.core.resources.ImageResource;
 import no.foodelicious.core.resources.RecipeResource;
 
 import org.eclipse.jetty.server.session.SessionHandler;
-
-import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
-import com.sun.jersey.api.container.filter.LoggingFilter;
-import com.sun.jersey.api.core.ResourceConfig;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 
 public class FoodeliciousService extends Application<MainConfiguration> {
 
@@ -28,7 +25,6 @@ public class FoodeliciousService extends Application<MainConfiguration> {
 
 	@Override
 	public void initialize(Bootstrap<MainConfiguration> bootstrap) {
-		bootstrap.addBundle(new ConfiguredAssetsBundle("/assets/", "/", "index.html"));
 	}
 
 	@Override
@@ -40,6 +36,8 @@ public class FoodeliciousService extends Application<MainConfiguration> {
 
 		// health checks goes here
 		environment.healthChecks().register("MongoDB", new MongoHealth(new RepositoryFactory().getDatatore(configuration.getMongoConfig()).getMongo()));
+
+		environment.servlets().addFilter("CrossOriginFilter", CrossOriginFilter.class);
 		
 		environment.jersey().register(new SessionHandler());
 	}
