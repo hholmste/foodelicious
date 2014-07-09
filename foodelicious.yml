@@ -1,7 +1,7 @@
 
 server:
   type: simple
-  applicationContextPath: /foodelicious/*
+  applicationContextPath: /foodelicious
   adminContextPath: /admin
   maxThreads: 1024
   gzip:
@@ -26,10 +26,10 @@ assets:
 
 #logging
 logging:
-  level: INFO
+  level: DEBUG
   loggers:
     com.sun.jersey.api.container.filter.LoggingFilter: INFO
-    org.eclipse.jetty: INFO
+    org.eclipse.jetty: DEBUG
   appenders:
     - type: console
       timeZone: GMT+2
